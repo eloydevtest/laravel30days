@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    ports:
+      - "8001:8000" # Puerto personalizado para evitar conflictos
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+    dns:
+      - 8.8.8.8
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    ports:
+      - "3307:3306" # Puerto cambiado para evitar conflicto con MySQL local
+    volumes:
+      - db_data:/var/lib/mysql
+    dns:
+      - 8.8.8.8
+
+volumes:
+  db_data:
