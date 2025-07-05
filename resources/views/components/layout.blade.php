@@ -24,19 +24,16 @@
                     <div class="flex items-center">
                         <div class="shrink-0">
                             <img class="size-8"
-                                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                                src="https://laracasts.com/images/logo/logo-triangle.svg?v=3"
                                 alt="Your Company" />
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="/"
-                                    class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                                    aria-current="page">Home</a>
-                                <a href="/about"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-                                <a href="/contact"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                                <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                                <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                                
                             </div>
                         </div>
                     </div>
@@ -62,7 +59,7 @@
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
                                         <img class="size-8 rounded-full"
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            src="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                             alt="" />
                                     </button>
                                 </div>
@@ -107,12 +104,12 @@
                     <div class="flex items-center px-5">
                         <div class="shrink-0">
                             <img class="size-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                src="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt="" />
                         </div>
                         <div class="ml-3">
-                            <div class="text-base/5 font-medium text-white">Tom Cook</div>
-                            <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                            <div class="text-base/5 font-medium text-white">DWS IESME</div>
+                            <div class="text-sm font-medium text-gray-400">dws@iesme.org</div>
                         </div>
                         <button type="button"
                             class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
