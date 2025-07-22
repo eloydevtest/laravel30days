@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -30,6 +28,19 @@ services:
       - db_data:/var/lib/mysql
     dns:
       - 8.8.8.8
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    restart: always
+    ports:
+      - "8081:80"  # Puedes cambiar el puerto si lo necesitas
+    environment:
+      PMA_HOST: db
+      PMA_USER: laravel
+      PMA_PASSWORD: laravel
+    depends_on:
+      - db
 
 volumes:
   db_data:
