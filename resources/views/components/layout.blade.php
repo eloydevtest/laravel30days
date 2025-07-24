@@ -94,9 +94,7 @@
                 <div class="border-t border-gray-700 pt-4 pb-3">
                     <div class="flex items-center px-5">
                         <div class="shrink-0">
-                            <img class="size-10 rounded-full"
-                                src="{{asset('images/avatar.avif')}}"
-                                alt="" />
+                            <img class="size-10 rounded-full" src="{{ asset('images/avatar.avif') }}" alt="" />
                         </div>
                         <div class="ml-3">
                             <div class="text-base/5 font-medium text-white">DWS IESME</div>
@@ -118,8 +116,9 @@
         </nav>
 
         <header class="bg-white shadow-sm">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+                <x-button href="/jobs/create">New Job</x-button>
             </div>
         </header>
         <main>
