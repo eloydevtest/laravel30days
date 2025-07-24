@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"  class="h-full bg-gray-100">
+<html lang="en" class="h-full bg-gray-100">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laracast 30 days | {{$heading}}</title>
+    <title>Laracast 30 days | {{ $heading }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -16,8 +16,7 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="shrink-0">
-                            <img class="size-8"
-                                src="https://laracasts.com/images/logo/logo-triangle.svg?v=3"
+                            <img class="size-8" src="{{ asset('images/logo.webp') }}" alt="Logo"
                                 alt="Your Company" />
                         </div>
                         <div class="hidden md:block">
@@ -26,7 +25,7 @@
                                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                                 <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
                                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -51,8 +50,7 @@
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="size-8 rounded-full"
-                                            src="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        <img class="size-8 rounded-full" src="{{ asset('images/avatar.avif') }}"
                                             alt="" />
                                     </button>
                                 </div>
@@ -97,7 +95,7 @@
                     <div class="flex items-center px-5">
                         <div class="shrink-0">
                             <img class="size-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1640960543409-dbe56ccc30e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                src="{{asset('images/avatar.avif')}}"
                                 alt="" />
                         </div>
                         <div class="ml-3">
@@ -121,7 +119,7 @@
 
         <header class="bg-white shadow-sm">
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
             </div>
         </header>
         <main>
