@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Index
 Route::get('/jobs', function () {
     //$jobs = Job::with('employer')->paginate(5); //Menos eficiente. Puedes ver el número total de registros.
     $jobs = Job::with('employer')->latest()->simplePaginate(5); //Más eficiente que el anterior. Puedes acceder a una página en concreto.
@@ -17,10 +18,12 @@ Route::get('/jobs', function () {
     ]);
 });
 
+// Create
 Route::get('/jobs/create', function (){
     return view('jobs.create');
 });
 
+// Store
 Route::post('/jobs/', function (){
     //dd(request()->all());
 
@@ -39,10 +42,64 @@ Route::post('/jobs/', function (){
     return redirect('/jobs');
 });
 
+// Show
 Route::get('/jobs/{id}', function ($id) {
 
     $job = Job::find($id);
     return view('jobs.show', ['job' => $job]);
+});
+
+
+// Edit
+Route::get('/jobs/{id}/edit', function ($id) {
+
+    $job = Job::find($id);
+    return view('jobs.edit', ['job' => $job]);
+});
+
+// Update
+Route::patch('/jobs/{id}', function ($id) {
+
+    //Validación
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required']
+    ]);
+
+    //Autorizar (en espera)
+    
+    
+    //Actualizar
+    $job = Job::findOrFail($id);
+    
+    $job->update([
+        'title' => request()->title,
+        'salary' => request()->salary
+    ]);
+
+    //Alternativamente 
+    /*
+    $job->title = request()->title;
+    $job->salary = request()->salary;
+    $job->save();
+    */
+
+    //redirigir
+    return redirect('/jobs/'. $job->id);
+});
+
+// Destroy
+Route::delete('/jobs/{id}', function ($id) {
+
+    //Autorizar (en espera)
+
+    //Eliminar
+    $job = Job::findOrFail($id);
+    $job->delete();
+
+    //redirigir
+    return redirect('/jobs');
+    
 });
 
 Route::get('/contact', function () {
